@@ -20,6 +20,7 @@
 		E47AE585287EE6FC00FA8A11 /* ArticlesDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AE584287EE6FC00FA8A11 /* ArticlesDM.swift */; };
 		E47AE587287EE78A00FA8A11 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AE586287EE78A00FA8A11 /* MainModel.swift */; };
 		E47AE589287F446B00FA8A11 /* NewsDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AE588287F446B00FA8A11 /* NewsDM.swift */; };
+		E47AE58B2880296D00FA8A11 /* ArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AE58A2880296D00FA8A11 /* ArticlesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		E47AE584287EE6FC00FA8A11 /* ArticlesDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesDM.swift; sourceTree = "<group>"; };
 		E47AE586287EE78A00FA8A11 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		E47AE588287F446B00FA8A11 /* NewsDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDM.swift; sourceTree = "<group>"; };
+		E47AE58A2880296D00FA8A11 /* ArticlesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,15 +111,13 @@
 			children = (
 				E47AE552287EE24500FA8A11 /* AppDelegate.swift */,
 				E47AE554287EE24500FA8A11 /* SceneDelegate.swift */,
-				E47AE556287EE24500FA8A11 /* ViewController.swift */,
-				E47AE558287EE24500FA8A11 /* Main.storyboard */,
+				E47AE591288029C800FA8A11 /* Helpers */,
+				E47AE590288029BB00FA8A11 /* Models */,
+				E47AE58E288029A500FA8A11 /* Storyboards */,
+				E47AE58D2880299700FA8A11 /* Views */,
+				E47AE58C2880297900FA8A11 /* ViewControllers */,
 				E47AE55B287EE24700FA8A11 /* Assets.xcassets */,
-				E47AE55D287EE24700FA8A11 /* LaunchScreen.storyboard */,
 				E47AE560287EE24700FA8A11 /* Info.plist */,
-				E47AE582287EE42700FA8A11 /* ConstantsData.swift */,
-				E47AE584287EE6FC00FA8A11 /* ArticlesDM.swift */,
-				E47AE586287EE78A00FA8A11 /* MainModel.swift */,
-				E47AE588287F446B00FA8A11 /* NewsDM.swift */,
 			);
 			path = "News Api Project";
 			sourceTree = "<group>";
@@ -137,6 +137,57 @@
 				E47AE575287EE24700FA8A11 /* News_Api_ProjectUITestsLaunchTests.swift */,
 			);
 			path = "News Api ProjectUITests";
+			sourceTree = "<group>";
+		};
+		E47AE58C2880297900FA8A11 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E47AE556287EE24500FA8A11 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E47AE58D2880299700FA8A11 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E47AE58A2880296D00FA8A11 /* ArticlesTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E47AE58E288029A500FA8A11 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E47AE558287EE24500FA8A11 /* Main.storyboard */,
+				E47AE55D287EE24700FA8A11 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E47AE58F288029B200FA8A11 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				E47AE588287F446B00FA8A11 /* NewsDM.swift */,
+				E47AE584287EE6FC00FA8A11 /* ArticlesDM.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		E47AE590288029BB00FA8A11 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E47AE58F288029B200FA8A11 /* DataModels */,
+				E47AE586287EE78A00FA8A11 /* MainModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E47AE591288029C800FA8A11 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E47AE582287EE42700FA8A11 /* ConstantsData.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E47AE58B2880296D00FA8A11 /* ArticlesTableViewCell.swift in Sources */,
 				E47AE557287EE24500FA8A11 /* ViewController.swift in Sources */,
 				E47AE583287EE42700FA8A11 /* ConstantsData.swift in Sources */,
 				E47AE587287EE78A00FA8A11 /* MainModel.swift in Sources */,

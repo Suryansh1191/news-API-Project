@@ -36,10 +36,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ConstantsData.NEWS_TABLECELL_ID, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ConstantsData.NEWS_TABLECELL_ID, for: indexPath) as! ArticlesTableViewCell
         
-        let title = self.newsArticlas[indexPath.row].title
-        cell.textLabel?.text = title
+        let currentArticles = self.newsArticlas[indexPath.row]
+        cell.setCell(currentArticles)
         
         return cell
     }
