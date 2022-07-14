@@ -7,13 +7,17 @@
 
 import Foundation
 
-struct NewsDM {
+struct NewsDM: Decodable {
     
-    var title = ""
-    var disription = ""
-    var author = ""
-    var content = ""
-    var url = ""
-    var imageUrl = ""
+    var articles: [ArticlesDM]?
+    
+    enum CodingKeys: String, CodingKey{
+        case articles
+    }
+    
+    init (from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.articles = try container.decode([ArticlesDM].self, forKey: .articles)
+    }
     
 }

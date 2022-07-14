@@ -27,7 +27,14 @@ class MainModel{
                 return
             }
             
-            print(data)
+            do{
+                let deocder = JSONDecoder()
+                let decodableResponce = try deocder.decode(NewsDM.self, from: data!)
+                print(decodableResponce)
+            }catch{
+                print(error)
+            }
+            
             
         }
         
