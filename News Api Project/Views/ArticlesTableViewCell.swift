@@ -39,6 +39,12 @@ class ArticlesTableViewCell: UITableViewCell {
             return
         }
         
+        //working on cache image
+        if let cachedImage = CacheManager.getVideoCache(self.article!.imageUrl!) {
+            self.ImageView.image = UIImage(data: cachedImage)
+            return
+        }
+        
         let url = URL(string: self.article!.imageUrl!)
         
         let sesion = URLSession.shared
@@ -47,6 +53,9 @@ class ArticlesTableViewCell: UITableViewCell {
         let dataTask = sesion.dataTask(with: url!) { data, response, error in
             
             if error == nil && data != nil {
+                
+                //saving in cache
+                CacheManager.setImageCache(url!.absoluteString, data)
                 
                 let image = UIImage(data: data!)
                 
