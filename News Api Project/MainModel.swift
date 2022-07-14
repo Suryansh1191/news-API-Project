@@ -7,7 +7,13 @@
 
 import Foundation
 
+protocol MainModelDelegate{
+    func fetchArticlas (_ articls: [ArticlesDM])
+}
+
 class MainModel{
+    
+    var delegate: MainModelDelegate?
     
     func getNews(){
         
@@ -30,6 +36,11 @@ class MainModel{
             do{
                 let deocder = JSONDecoder()
                 let decodableResponce = try deocder.decode(NewsDM.self, from: data!)
+                
+                if decodableResponce.articles != nil {
+                    self.delegate?.fetchArticlas(decodableResponce.articles!)
+                }
+                
                 print(decodableResponce)
             }catch{
                 print(error)
