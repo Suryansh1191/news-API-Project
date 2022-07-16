@@ -62,6 +62,7 @@
                                             <outlet property="ImageView" destination="yX2-eL-RN6" id="tKl-SU-AvC"/>
                                             <outlet property="content" destination="6iD-bK-Fca" id="dk4-ig-aZH"/>
                                             <outlet property="title" destination="Men-mD-dw3" id="qlf-EN-JDP"/>
+                                            <segue destination="FT7-0j-cZ6" kind="show" id="AnG-vh-5fp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -82,10 +83,67 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="71" y="69"/>
+            <point key="canvasLocation" x="88" y="68"/>
+        </scene>
+        <!--Detaile News View Controller-->
+        <scene sceneID="eLU-E6-0XC">
+            <objects>
+                <viewController id="FT7-0j-cZ6" customClass="DetaileNewsViewController" customModule="News_Api_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fzR-9a-66y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OFW-iY-gUH">
+                                <rect key="frame" x="20" y="50" width="374" height="758"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ofl-Jw-tc5">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="210.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ofl-Jw-tc5" secondAttribute="height" multiplier="1280:720" id="tTq-ax-Kfb"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqA-z5-vkB">
+                                        <rect key="frame" x="0.0" y="220.5" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="247" verticalCompressionResistancePriority="747" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F4l-IR-gS1">
+                                        <rect key="frame" x="0.0" y="251" width="374" height="507"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dGI-JT-aiB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dGI-JT-aiB" firstAttribute="bottom" secondItem="OFW-iY-gUH" secondAttribute="bottom" id="522-pv-WxU"/>
+                            <constraint firstItem="OFW-iY-gUH" firstAttribute="leading" secondItem="dGI-JT-aiB" secondAttribute="leading" constant="20" id="DsC-A3-KUf"/>
+                            <constraint firstItem="dGI-JT-aiB" firstAttribute="trailing" secondItem="OFW-iY-gUH" secondAttribute="trailing" constant="20" id="MAe-NV-x8y"/>
+                            <constraint firstItem="OFW-iY-gUH" firstAttribute="top" secondItem="dGI-JT-aiB" secondAttribute="top" constant="50" id="zsH-ZF-0TM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="5YX-EP-bMX"/>
+                    <connections>
+                        <outlet property="contentText" destination="F4l-IR-gS1" id="iPY-NW-nos"/>
+                        <outlet property="imageView" destination="ofl-Jw-tc5" id="6Qy-x6-G0f"/>
+                        <outlet property="titleLabel" destination="DqA-z5-vkB" id="X88-xm-mbE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HS0-Zj-yYa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815" y="68"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

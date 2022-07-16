@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E43887DC28805400005C9E5F /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43887DB28805400005C9E5F /* CacheManager.swift */; };
+		E43887DE2882B4A9005C9E5F /* DetaileNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43887DD2882B4A9005C9E5F /* DetaileNewsViewController.swift */; };
 		E47AE553287EE24500FA8A11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AE552287EE24500FA8A11 /* AppDelegate.swift */; };
 		E47AE555287EE24500FA8A11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AE554287EE24500FA8A11 /* SceneDelegate.swift */; };
 		E47AE557287EE24500FA8A11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AE556287EE24500FA8A11 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		E43887DB28805400005C9E5F /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		E43887DD2882B4A9005C9E5F /* DetaileNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaileNewsViewController.swift; sourceTree = "<group>"; };
 		E47AE54F287EE24500FA8A11 /* News Api Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "News Api Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47AE552287EE24500FA8A11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E47AE554287EE24500FA8A11 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				E47AE556287EE24500FA8A11 /* ViewController.swift */,
+				E43887DD2882B4A9005C9E5F /* DetaileNewsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				E47AE583287EE42700FA8A11 /* ConstantsData.swift in Sources */,
 				E47AE587287EE78A00FA8A11 /* MainModel.swift in Sources */,
 				E47AE589287F446B00FA8A11 /* NewsDM.swift in Sources */,
+				E43887DE2882B4A9005C9E5F /* DetaileNewsViewController.swift in Sources */,
 				E47AE553287EE24500FA8A11 /* AppDelegate.swift in Sources */,
 				E47AE585287EE6FC00FA8A11 /* ArticlesDM.swift in Sources */,
 				E47AE555287EE24500FA8A11 /* SceneDelegate.swift in Sources */,

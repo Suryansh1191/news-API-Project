@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     var model = MainModel()
     var newsArticlas = [ArticlesDM]()
+    let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,8 +23,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.delegate = self
         model.delegate = self
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         
         model.getNews()
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+       // Code to refresh table view
+        model.getNews()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard tableView.indexPathForSelectedRow != nil else{
+            return
+        }
+        
+        let selectedArticl = newsArticlas[tableView.indexPathForSelectedRow!.row]
+        
+        let tranferDestination = segue.destination as! DetaileNewsViewController
+        
+        tranferDestination.articles = selectedArticl
+        
+        
     }
     
     func fetchArticlas(_ articls: [ArticlesDM]) {
@@ -31,6 +54,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         DispatchQueue.main.async { //calling it in the main thread coz its a UI changing thing
             self.tableView.reloadData()
+            print("DelegateCall")
         }
         
     }

@@ -17,6 +17,9 @@ class MainModel{
     
     func getNews(){
         
+        print("Api call")
+
+        
         let url = URL(string: ConstantsData.API_URL)
         
         guard url != nil else{

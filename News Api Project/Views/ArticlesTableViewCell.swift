@@ -16,7 +16,6 @@ class ArticlesTableViewCell: UITableViewCell {
     
     var article: ArticlesDM?
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,7 +31,7 @@ class ArticlesTableViewCell: UITableViewCell {
         self.article = a
         
         self.title.text = article?.title
-        self.content.text = article?.content
+        self.content.text = article?.description
         
         //image set
         guard self.article?.imageUrl != nil else{
