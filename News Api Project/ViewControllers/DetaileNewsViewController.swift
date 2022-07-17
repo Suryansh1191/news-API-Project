@@ -21,16 +21,26 @@ class DetaileNewsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func buttonView(_ sender: Any) {
+        if let url = URL(string: articles?.url ?? "https://www.apple.com/in"){
+            UIApplication.shared.open(url)
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        //doing this because on cell re use we where getting the old articls information
-
         
         titleLabel.text = articles?.title
         contentText.text = articles?.content
         
+        guard articles?.imageUrl != nil else {
+            return
+        }
+        
         let image = CacheManager.getVideoCache((articles?.imageUrl)!)
+        
+        guard image != nil else {
+            return
+        }
         imageView.image = UIImage(data: image!)
         
     }

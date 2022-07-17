@@ -7,18 +7,21 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MainModelDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, MainModelDelegate {
     
 
     var model = MainModel()
     var newsArticlas = [ArticlesDM]()
     let refreshControl = UIRefreshControl()
     
+    private let searchVC = UISearchController(searchResultsController: nil)
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        title = "NewsForYou"
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -26,12 +29,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         
-        model.getNews()
+        createSearchBar()
+        model.getNews(nil)
+        
     }
     
     @objc func refresh(_ sender: AnyObject) {
        // Code to refresh table view
-        model.getNews()
+        model.getNews(nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,6 +52,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tranferDestination.articles = selectedArticl
         
         
+    }
+    
+    func createSearchBar(){
+        navigationItem.searchController = searchVC
+        searchVC.searchBar.delegate = self
     }
     
     func fetchArticlas(_ articls: [ArticlesDM]) {
@@ -74,6 +84,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, !text.isEmpty else {
+            return
+        }
+        model.getNews(text)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        print(text )
     }
 
 }

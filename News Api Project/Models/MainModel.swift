@@ -15,17 +15,23 @@ class MainModel{
     
     var delegate: MainModelDelegate?
     
-    func getNews(){
+    func getNews(_ searchResult: String?){
         
         print("Api call")
 
+        var url: URL?
         
-        let url = URL(string: ConstantsData.API_URL)
-        
-        guard url != nil else{
-            print("empty url")
-            return
+        if searchResult == nil {
+            url = URL(string: "\(ConstantsData.API_URL_TOP_HEADLINES)?country=\(ConstantsData.COUNTRY)&apiKey=\(ConstantsData.API_KEY)")
+        }else{
+            url = URL(string: "\(ConstantsData.API_URL_EVERYTHING)?q=\(searchResult!)&apiKey=\(ConstantsData.API_KEY)")
         }
+        
+        
+//        guard url != nil else{
+//            print("empty url")
+//            return
+//        }
         
         let session = URLSession.shared
         
@@ -35,6 +41,8 @@ class MainModel{
                 print("API ERROR")
                 return
             }
+            
+            print(data?.description as Any)
             
             do{
                 let deocder = JSONDecoder()
