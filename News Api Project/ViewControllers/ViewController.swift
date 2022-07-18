@@ -30,13 +30,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         
         createSearchBar()
-        model.getNews(nil)
+        model.getNews(nil, 1)
         
     }
     
     @objc func refresh(_ sender: AnyObject) {
        // Code to refresh table view
-        model.getNews(nil)
+        model.getNews(nil, 1)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,7 +60,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func fetchArticlas(_ articls: [ArticlesDM]) {
-        self.newsArticlas = articls
+        self.newsArticlas = self.newsArticlas + articls
         
         DispatchQueue.main.async { //calling it in the main thread coz its a UI changing thing
             self.tableView.reloadData()
@@ -86,11 +86,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastItem = newsArticlas.count - 1
+        if indexPath.row == lastItem {
+            if model.totalPage > model.currentPage {
+                model.getNews(nil, 1)
+            }
+        }
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, !text.isEmpty else {
             return
         }
-        model.getNews(text)
+        model.getNews(text, 1)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }

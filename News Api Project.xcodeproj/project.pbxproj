@@ -23,6 +23,7 @@
 		E47AE587287EE78A00FA8A11 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AE586287EE78A00FA8A11 /* MainModel.swift */; };
 		E47AE589287F446B00FA8A11 /* NewsDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AE588287F446B00FA8A11 /* NewsDM.swift */; };
 		E47AE58B2880296D00FA8A11 /* ArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AE58A2880296D00FA8A11 /* ArticlesTableViewCell.swift */; };
+		E4AA06982885EA5100AE6FA8 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AE586287EE78A00FA8A11 /* MainModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -344,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4AA06982885EA5100AE6FA8 /* MainModel.swift in Sources */,
 				E47AE56A287EE24700FA8A11 /* News_Api_ProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

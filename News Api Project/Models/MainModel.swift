@@ -13,25 +13,23 @@ protocol MainModelDelegate{
 
 class MainModel{
     
+    var totalPage: Int = 0
+    var currentPage = 1
     var delegate: MainModelDelegate?
     
-    func getNews(_ searchResult: String?){
+    func getNews(_ searchResult: String?, _ pageNumber: Int){
         
         print("Api call")
 
         var url: URL?
         
+        currentPage = currentPage + 1
+        
         if searchResult == nil {
-            url = URL(string: "\(ConstantsData.API_URL_TOP_HEADLINES)?country=\(ConstantsData.COUNTRY)&apiKey=\(ConstantsData.API_KEY)")
+            url = URL(string: "\(ConstantsData.API_URL_TOP_HEADLINES)?country=\(ConstantsData.COUNTRY)&pageSize=10&page=\(currentPage)&apiKey=\(ConstantsData.API_KEY)")
         }else{
-            url = URL(string: "\(ConstantsData.API_URL_EVERYTHING)?q=\(searchResult!)&apiKey=\(ConstantsData.API_KEY)")
+            url = URL(string: "\(ConstantsData.API_URL_EVERYTHING)?q=\(searchResult!)&pageSize=10&page=\(currentPage)&apiKey=\(ConstantsData.API_KEY)")
         }
-        
-        
-//        guard url != nil else{
-//            print("empty url")
-//            return
-//        }
         
         let session = URLSession.shared
         
@@ -47,6 +45,17 @@ class MainModel{
             do{
                 let deocder = JSONDecoder()
                 let decodableResponce = try deocder.decode(NewsDM.self, from: data!)
+                
+                var totalPage: Int!
+                if decodableResponce.totalResults%10 != 0 {
+                    totalPage = decodableResponce.totalResults/10 + 1
+                }else{
+                    totalPage = decodableResponce.totalResults/10
+                }
+                
+                self.totalPage = totalPage
+                
+                
                 
                 if decodableResponce.articles != nil {
                     self.delegate?.fetchArticlas(decodableResponce.articles!)
