@@ -9,10 +9,12 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, MainModelDelegate {
     
+    
 
     var model = MainModel()
     var newsArticlas = [ArticlesDM]()
     let refreshControl = UIRefreshControl()
+    var cacheArticlsData = [ArticlesDM]()
     
     private let searchVC = UISearchController(searchResultsController: nil)
     
@@ -59,9 +61,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         searchVC.searchBar.delegate = self
     }
     
-    func fetchArticlas(_ articls: [ArticlesDM]) {
-        self.newsArticlas = self.newsArticlas + articls
-        
+    func fetchArticlas(_ articls: [ArticlesDM], isSearchResult: Bool) {
+        if isSearchResult {
+            self.cacheArticlsData = self.newsArticlas //saving the pre loaded data
+            self.newsArticlas = articls
+        }else{
+            self.newsArticlas = self.newsArticlas + articls
+        }
         DispatchQueue.main.async { //calling it in the main thread coz its a UI changing thing
             self.tableView.reloadData()
             print("DelegateCall")
@@ -96,6 +102,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         guard let text = searchBar.text, !text.isEmpty else {
             return
         }
@@ -104,6 +111,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.tableView.reloadData()
         }
         print(text )
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.newsArticlas = self.cacheArticlsData
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
     }
 
 }

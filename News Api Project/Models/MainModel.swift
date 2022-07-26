@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MainModelDelegate{
-    func fetchArticlas (_ articls: [ArticlesDM])
+    func fetchArticlas (_ articls: [ArticlesDM], isSearchResult: Bool)
 }
 
 class MainModel{
@@ -55,10 +55,13 @@ class MainModel{
                 
                 self.totalPage = totalPage
                 
-                
-                
                 if decodableResponce.articles != nil {
-                    self.delegate?.fetchArticlas(decodableResponce.articles!)
+                    if searchResult != nil {
+                        self.delegate?.fetchArticlas(decodableResponce.articles!, isSearchResult: true)
+                    }else{
+                        self.delegate?.fetchArticlas(decodableResponce.articles!, isSearchResult: false)
+                    }
+                    
                 }
                 
                 print(decodableResponce)
