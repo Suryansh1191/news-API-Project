@@ -1,8 +1,8 @@
 # news-API-Project
-API Based project on iOS (storyboard)
+API Based project on iOS (Swift/UIkit)
 
 Uses Public news API: http://newsapi.org/
-Biild on swift & UIKit
+
 
 Fetures 
 1. Search 
