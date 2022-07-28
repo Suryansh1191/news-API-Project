@@ -9,8 +9,7 @@ Fetures
 2. Pagenation 
 3. Cache Image storage 
 
-<img src = "https://user-images.githubusercontent.com/69685349/181467556-6941ad49-0256-49fc-a634-92cd4b1d8648.png" width="200" hight ="350">
-<img src = "https://user-images.githubusercontent.com/69685349/181467630-31199510-1f84-4bc3-b508-95133c2f5a08.png" width="200" hight ="350">
+<img src = "https://user-images.githubusercontent.com/69685349/181467556-6941ad49-0256-49fc-a634-92cd4b1d8648.png" width="200" hight ="350"> <img src = "https://user-images.githubusercontent.com/69685349/181467630-31199510-1f84-4bc3-b508-95133c2f5a08.png" width="200" hight ="350"> <img src = "https://user-images.githubusercontent.com/69685349/181470605-b28e7258-38fd-4936-b165-a683c508f28b.png" width="200" hight ="350">
 
 
 
